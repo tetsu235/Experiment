@@ -60,7 +60,23 @@ else:
   print(-1)
 
 #9.2
+def max_mod(dev, cards):
+  max = 0
+  for i in range(num_card):
+    if cards[i] % dev == (dev - 1):
+      max = dev - 1
+      break
+    if (cards[i] % dev) > max:
+      max = (cards[i] % dev)
+  return max
+      
+num_card, num_question = map(int, input("Enter the number of cards and questions, separated by space: ").split())
+list_cards = list(map(int, input("Enter the numbers on card, separated by space: ").split()))
+for i in range(1, num_question + 1):
+  question = int(input("Enter the number of devider: "))
+  print(max_mod(question, list_cards))
 
-
+#9.3
+  
   
     
