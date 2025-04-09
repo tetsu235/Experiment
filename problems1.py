@@ -78,5 +78,9 @@ for i in range(1, num_question + 1):
 
 #9.3
   
+num_pix = int(input("Enter the number of the pixel: "))
+alp = list(input("Enter each alphabet in the picture, separated by space: ").split())
+num_op = int(input("Enter the number of the operation: "))
+for i in range(num_op):
+  a, b = tuple(map(int, input("Enter two numbers: ").split()))
   
-    
