@@ -79,8 +79,75 @@ for i in range(1, num_question + 1):
 #9.3
   
 num_pix = int(input("Enter the number of the pixel: "))
-alp = list(input("Enter each alphabet in the picture, separated by space: ").split())
+list_of_alp = []
+for i in range(num_pix):
+  temp = list(input("Enter the alphabets: "))
+  list_of_alp += temp
+  
 num_op = int(input("Enter the number of the operation: "))
+op_list = []
 for i in range(num_op):
-  a, b = tuple(map(int, input("Enter two numbers: ").split()))
+  op = int(input("Enter the operation: "))
+  op_list += op
+  
+res_op = sum(op_list)
+
+if res_op % 4 == 0:
+  for i in range(num_pix):
+    for j in range(num_pix):
+      print(list_of_alp[i][j], end = "")
+    print("\n")
+else if res_op % 4 == 1:
+  for i in range(num_pix):
+    for j in range(num_pix):
+      print(list_of_alp[j][i], end = "")
+    print("\n")
+else if res_op % 4 == 2:
+  for i in range(num_pix):
+    for j in range(num_pix):
+      print(list_of_alp[num_pix - i - 1][num_pix - j - 1], end = "")
+    print("")
+else:
+  for i in range(num_pix):
+    for j in range(num_pix):
+      print(list_of_alp[j][num_pix - j - 1], end = "")
+    print("")
+
+
+# 9.4
+num_symmetry = 0
+num_coaster, pixel = tuple(input("Enter two numbers, separated by space: ").split())
+pixel_list = []
+for i in range(pixel):
+  temp = list(input("Enter the corresponding number: "))
+  pixel_list += temp
+diff = 0
+for i in range(pixel / 2):
+  for j in range(pixel):
+    if pixel_list[i][j] != pixel_list[i][pixel - j - 1]:
+      deff++
+    if pixel_list[i][j] != pixel_list[pixel - i - 1][j]:
+      diff++
+
+for i in range(num_coaster):
+  num_of_change = int(input("Enter the number of changes in pixel: "))
+  for j in range(num_of_change):
+    r, c = tuple(map(int, input("Enter the position of pixel: ").split()))
+    if pixel_list[r][c] == pixel_list[r][abs(c - (pixel- 1))]:
+      diff++
+    else:
+      diff--
+    if pixel_list[r][c] == pixel_list[abs(r - (pixel - 1))][c]:
+      diff++
+    else:
+      diff--
+    pixel_list[r][c] = -pixel_list[r][c]
+  if diff == 0:
+    num_symmetry++
+
+print(num_symmetry)
+
+# 10.1
+
+
   
